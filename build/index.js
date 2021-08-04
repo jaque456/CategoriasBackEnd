@@ -8,6 +8,7 @@ var morgan_1 = __importDefault(require("morgan"));
 var cors_1 = __importDefault(require("cors"));
 var usuarioRoutes_1 = __importDefault(require("./routes/usuarioRoutes"));
 var authRoutes_1 = __importDefault(require("./routes/authRoutes"));
+var generalRoutes_1 = __importDefault(require("./routes/generalRoutes"));
 var Server = /** @class */ (function () {
     // Constructor de nuestro servidor
     function Server() {
@@ -28,6 +29,7 @@ var Server = /** @class */ (function () {
     Server.prototype.routes = function () {
         this.app.use('/usuario', usuarioRoutes_1.default);
         this.app.use('/auth', authRoutes_1.default);
+        this.app.use('/general', generalRoutes_1.default);
     };
     // Inicialización del servidor
     Server.prototype.start = function () {
