@@ -1,6 +1,8 @@
 import express , { Application } from 'express';
 import morgan from 'morgan';
 import cors from 'cors'
+import usuarioRoutes from './routes/usuarioRoutes';
+import authRoutes from './routes/authRoutes';
 
 
 class Server {
@@ -24,7 +26,11 @@ class Server {
     }
 
     // Rutas para mi APIRest
-    routes(): void {}
+    roures(): void {}
+    routes(): void {
+        this.app.use('/usuario',usuarioRoutes);
+        this.app.use('/auth', authRoutes);
+    }
 
     // Inicialización del servidor
     start(): void {
