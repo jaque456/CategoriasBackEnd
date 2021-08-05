@@ -4,6 +4,7 @@ import cors from 'cors'
 import usuarioRoutes from './routes/usuarioRoutes';
 import authRoutes from './routes/authRoutes';
 import generalRoutes from './routes/generalRoutes';
+import categoriasRoutes from './routes/categoriasRoutes';
 
 
 class Server {
@@ -32,6 +33,7 @@ class Server {
         this.app.use('/usuario',usuarioRoutes);
         this.app.use('/auth', authRoutes);
         this.app.use('/general', generalRoutes);
+        this.app.use('/categoria', categoriasRoutes);
     }
 
     // Inicialización del servidor

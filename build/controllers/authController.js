@@ -43,6 +43,7 @@ exports.authController = void 0;
 var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 var jwtkey_1 = __importDefault(require("../config/jwtkey"));
 var authDao_1 = require("../dao/authDao");
+// import { categoriaDao } from '../dao/categoriasDao'
 var utils_1 = require("../utils/utils");
 var AuthController = /** @class */ (function () {
     function AuthController() {
@@ -59,16 +60,26 @@ var AuthController = /** @class */ (function () {
                     case 0:
                         _a = req.body, username = _a.username, password = _a.password, nombre = _a.nombre, apellidos = _a.apellidos;
                         console.log(username, password);
+                        // console.log(username, password);
                         if (username == null || password == null) {
                             return [2 /*return*/, res.status(400).json({ message: "Usuario y contraseña  incorrecta" })];
                         }
                         return [4 /*yield*/, authDao_1.dao.getUser(username)];
                     case 1:
                         users = _b.sent();
+                        // const categoria = await categoriaDao.listaByUsuario(username);
+                        // const mascotas = await daoMascotas.listaByUsuario(username);
+                        // if(categoria.length <= 0) {
+                        //     return res.status(400).json({ message: "Las Categorias no estan Registradas" });
+                        // }
+                        // if(mascotas.length <= 0) {
+                        //     return res.status(400).json({ message: "Usted no tiene mascotas en adopcion favor de comunicarse con la sucursal" });
+                        // }
                         // Verificar si existe el usuario
                         if (users.length <= 0) {
                             return [2 /*return*/, res.status(400).json({ message: "El usuario no existe" })];
                         }
+                        console.log(users);
                         _i = 0, users_1 = users;
                         _b.label = 2;
                     case 2:
@@ -77,8 +88,8 @@ var AuthController = /** @class */ (function () {
                         return [4 /*yield*/, utils_1.utils.checkPassword(password, user.password)];
                     case 3:
                         if (_b.sent()) {
-                            token = jsonwebtoken_1.default.sign({ cveUsuario: user.cveUsuario, username: username, mascota: user.nombreMascota }, jwtkey_1.default.jwtSecret, { expiresIn: '1h' });
-                            return [2 /*return*/, res.json({ message: "OK", token: token, cveUsuario: user.cveUsuario, username: username, mascota: user.nombreMascota, nombre: user.nombre, apellidos: user.apellidos, raza: user.nomRaza, descripcion: user.descripcion })];
+                            token = jsonwebtoken_1.default.sign({ cveUsuario: user.cveUsuario, username: username }, jwtkey_1.default.jwtSecret, { expiresIn: '1h' });
+                            return [2 /*return*/, res.json({ message: "OK", token: token, cveUsuario: user.cveUsuario, username: username, nombre: user.nombre, apellidos: user.apellidos, nombreCategoria: user.nombreCategoria, nombreTipo: user.nombreTipo })];
                         }
                         else {
                             return [2 /*return*/, res.status(400).json({ message: "La contraseña es incorrecta" })];

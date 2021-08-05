@@ -53,7 +53,7 @@ var AuthDAO = /** @class */ (function () {
                     case 0: return [4 /*yield*/, database_1.default.then(function (connection) { return __awaiter(_this, void 0, void 0, function () {
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
-                                    case 0: return [4 /*yield*/, connection.query('SELECT * FROM usuario WHERE username = ?', [usuario])];
+                                    case 0: return [4 /*yield*/, connection.query("SELECT cveUsuario, nombre, apellidos, username, password, cveCategoria, nombreCategoria, descripcion, tipo, cveTipo, nombreTipo  FROM usuario LEFT JOIN categoria ON usuario.cveUsuario = categoria.cveRegistro LEFT JOIN tipo ON categoria.tipo = tipo.cveTipo WHERE usuario.username = ?", [usuario])];
                                     case 1: return [2 /*return*/, _a.sent()];
                                 }
                             });

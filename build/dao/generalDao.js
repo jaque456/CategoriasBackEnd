@@ -53,7 +53,7 @@ var GeneralDao = /** @class */ (function () {
                     case 0: return [4 /*yield*/, database_1.default.then(function (connection) { return __awaiter(_this, void 0, void 0, function () {
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
-                                    case 0: return [4 /*yield*/, connection.query("SELECT cveTipo, nombre FROM tipo")];
+                                    case 0: return [4 /*yield*/, connection.query("SELECT cveTipo, nombreTipo FROM tipo")];
                                     case 1: return [2 /*return*/, _a.sent()];
                                 }
                             });
