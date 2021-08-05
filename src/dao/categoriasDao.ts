@@ -34,7 +34,7 @@ class CategoriaDao {
             return await connection.query("DELETE FROM categoria WHERE cveCategoria = ?", [cveCategoria]);
         });
 
-        return result;
+        return result; 
     }
 
 

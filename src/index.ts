@@ -7,6 +7,7 @@ import generalRoutes from './routes/generalRoutes';
 import categoriasRoutes from './routes/categoriasRoutes';
 
 
+
 class Server {
 
     public app: Application;
