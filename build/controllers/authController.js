@@ -89,7 +89,7 @@ var AuthController = /** @class */ (function () {
                     case 3:
                         if (_b.sent()) {
                             token = jsonwebtoken_1.default.sign({ cveUsuario: user.cveUsuario, username: username }, jwtkey_1.default.jwtSecret, { expiresIn: '1h' });
-                            return [2 /*return*/, res.json({ message: "OK", token: token, cveUsuario: user.cveUsuario, username: username, nombre: user.nombre, apellidos: user.apellidos, nombreCategoria: user.nombreCategoria, nombreTipo: user.nombreTipo })];
+                            return [2 /*return*/, res.json({ message: "OK", token: token, cveUsuario: user.cveUsuario, username: username, nombre: user.nombre, apellidos: user.apellidos, nombreCategoria: user.nombreCategoria, nombreTipo: user.nombreTipo, descripcion: user.descripcion })];
                         }
                         else {
                             return [2 /*return*/, res.status(400).json({ message: "La contraseña es incorrecta" })];

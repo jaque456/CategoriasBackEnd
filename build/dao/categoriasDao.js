@@ -74,7 +74,7 @@ var CategoriaDao = /** @class */ (function () {
                     case 0: return [4 /*yield*/, database_1.default.then(function (connection) { return __awaiter(_this, void 0, void 0, function () {
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
-                                    case 0: return [4 /*yield*/, connection.query("SELECT cveUsuario, nombre, apellidos, username, cveCategoria, nombreCategoria, tipo, cveTipo, nombreTipo  FROM usuario JOIN categoria ON usuario.cveUsuario = categoria.cveRegistrado JOIN tipo ON categoria.tipo = categoria.cveTipo")];
+                                    case 0: return [4 /*yield*/, connection.query("SELECT cveUsuario, nombre, apellidos, username, cveCategoria, nombreCategoria, tipo, cveTipo, nombreTipo, descripcion  FROM usuario JOIN categoria ON usuario.cveUsuario = categoria.cveRegistro JOIN tipo ON categoria.tipo = categoria.tipo")];
                                     case 1: return [2 /*return*/, _a.sent()];
                                 }
                             });

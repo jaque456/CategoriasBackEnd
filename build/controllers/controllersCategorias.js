@@ -73,7 +73,7 @@ var MascotasController = /** @class */ (function () {
                         if (username == null) {
                             return [2 /*return*/, res.status(400).json({ message: "No se puede eliminar" })];
                         }
-                        return [4 /*yield*/, categoriasDao_1.categoriaDao.listaByUsuario(parseInt(username))];
+                        return [4 /*yield*/, categoriasDao_1.categoriaDao.listaByUsuario(username)];
                     case 1:
                         result = _a.sent();
                         res.json(result);
@@ -108,10 +108,10 @@ var MascotasController = /** @class */ (function () {
                     case 1:
                         result = _b.sent();
                         if (result.affectedRows > 0) {
-                            return [2 /*return*/, res.json({ meesage: "Registro exitoso" })];
+                            return [2 /*return*/, res.json({ message: "¡Registro completado!" })];
                         }
                         else {
-                            return [2 /*return*/, res.status(400).json({ meesage: result.message })];
+                            return [2 /*return*/, res.status(400).json({ message: result.message })];
                         }
                         return [3 /*break*/, 3];
                     case 2:
@@ -138,7 +138,7 @@ var MascotasController = /** @class */ (function () {
                     case 1:
                         result = _a.sent();
                         if (result.affectedRows > 0) {
-                            return [2 /*return*/, res.json({ meesage: "Actualizado correctamente" })];
+                            return [2 /*return*/, res.json({ message: "!Se Actualizo correctamente¡" })];
                         }
                         else {
                             return [2 /*return*/, res.status(400).json({ meesage: result.message })];
@@ -162,13 +162,13 @@ var MascotasController = /** @class */ (function () {
                         _a.trys.push([0, 2, , 3]);
                         cveCategoria = req.params.cveCategoria;
                         if (cveCategoria == null) {
-                            return [2 /*return*/, res.status(400).json({ message: "No se puede eliminar" })];
+                            return [2 /*return*/, res.status(400).json({ message: "¡No se puede eliminar!" })];
                         }
                         return [4 /*yield*/, categoriasDao_1.categoriaDao.delete(parseInt(cveCategoria))];
                     case 1:
                         result = _a.sent();
                         if (result.affectedRows > 0) {
-                            res.json({ message: "Borrado exitosamente" });
+                            res.json({ message: "¡Se borro de forma correcta!" });
                         }
                         else {
                             res.status(400).json({ message: result.message });

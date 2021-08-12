@@ -26,7 +26,6 @@ var Server = /** @class */ (function () {
         this.app.use(express_1.default.urlencoded({ extended: false }));
     };
     // Rutas para mi APIRest
-    Server.prototype.roures = function () { };
     Server.prototype.routes = function () {
         this.app.use('/usuario', usuarioRoutes_1.default);
         this.app.use('/auth', authRoutes_1.default);

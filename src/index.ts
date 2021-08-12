@@ -29,7 +29,6 @@ class Server {
     }
 
     // Rutas para mi APIRest
-    roures(): void {}
     routes(): void {
         this.app.use('/usuario',usuarioRoutes);
         this.app.use('/auth', authRoutes);

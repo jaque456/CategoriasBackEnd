@@ -8,7 +8,7 @@ class CategoriaDao {
     }
     public async lista() {
         const result  = await pool.then(async (connection) => {
-            return await connection.query("SELECT cveUsuario, nombre, apellidos, username, cveCategoria, nombreCategoria, tipo, cveTipo, nombreTipo  FROM usuario JOIN categoria ON usuario.cveUsuario = categoria.cveRegistrado JOIN tipo ON categoria.tipo = categoria.cveTipo");
+            return await connection.query("SELECT cveUsuario, nombre, apellidos, username, cveCategoria, nombreCategoria, tipo, cveTipo, nombreTipo, descripcion  FROM usuario JOIN categoria ON usuario.cveUsuario = categoria.cveRegistro JOIN tipo ON categoria.tipo = categoria.tipo");
         });
 
         return result;

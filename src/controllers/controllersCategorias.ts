@@ -16,7 +16,7 @@ class MascotasController {
                 return res.status(400).json({ message : "No se puede eliminar" });
             }
 
-            const result = await categoriaDao.listaByUsuario(parseInt(username));
+            const result = await categoriaDao.listaByUsuario(username);
             res.json(result);
 
         } catch (error) {
@@ -38,9 +38,9 @@ class MascotasController {
             }
             const result = await categoriaDao.insert(categoria);
             if(result.affectedRows > 0){
-                return res.json({ meesage : "Registro exitoso" });
+                return res.json({ message : "¡Registro completado!" });
             } else  {
-                return res.status(400).json({ meesage : result.message });
+                return res.status(400).json({ message : result.message });
             }
         } catch (ex) {
             res.status(500).json({ message: ex.message });
@@ -58,7 +58,7 @@ class MascotasController {
             const result = await categoriaDao.update(categoria);
 
             if(result.affectedRows > 0){
-                return res.json({ meesage : "Actualizado correctamente" });
+                return res.json({ message : "!Se Actualizo correctamente¡" });
             } else  {
                 return res.status(400).json({ meesage : result.message });
             }
@@ -72,13 +72,13 @@ class MascotasController {
             const { cveCategoria } = req.params;
 
             if(cveCategoria == null){
-                return res.status(400).json({ message : "No se puede eliminar" });
+                return res.status(400).json({ message : "¡No se puede eliminar!" });
             }
 
             const result = await categoriaDao.delete(parseInt(cveCategoria));
 
             if(result.affectedRows > 0){
-                res.json({ message : "Borrado exitosamente" })
+                res.json({ message : "¡Se borro de forma correcta!" })
             } else  {
                 res.status(400).json({ message : result.message });
             }

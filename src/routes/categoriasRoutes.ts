@@ -9,7 +9,7 @@ class CategoriaRoutes {
 
     config(): void {
         this.router.get('/', /*[checkJwt],*/ controllersCategorias.lista);
-        this.router.get('/listaByUsuario:username', /*[checkJwt],*/ controllersCategorias.listaByUsuario);
+        this.router.get('/listaByUsuario/:username', /*[checkJwt],*/ controllersCategorias.listaByUsuario);
         this.router.get('/', [checkJwt], controllersCategorias.lista);
         this.router.put('/', /*[checkJwt],*/ controllersCategorias.insert);
         this.router.post('/', controllersCategorias.update);

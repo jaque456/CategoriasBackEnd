@@ -10,7 +10,7 @@ var CategoriaRoutes = /** @class */ (function () {
     }
     CategoriaRoutes.prototype.config = function () {
         this.router.get('/', /*[checkJwt],*/ controllersCategorias_1.controllersCategorias.lista);
-        this.router.get('/listaByUsuario:username', /*[checkJwt],*/ controllersCategorias_1.controllersCategorias.listaByUsuario);
+        this.router.get('/listaByUsuario/:username', /*[checkJwt],*/ controllersCategorias_1.controllersCategorias.listaByUsuario);
         this.router.get('/', [jwt_1.checkJwt], controllersCategorias_1.controllersCategorias.lista);
         this.router.put('/', /*[checkJwt],*/ controllersCategorias_1.controllersCategorias.insert);
         this.router.post('/', controllersCategorias_1.controllersCategorias.update);
